@@ -1,9 +1,8 @@
 #!/bin/bash -x
 
 echo "******* TIC TAC TOE *******"
-
-declare -a Arr
-Arr=(1 2 3 4 5 6 7 8 9)
+declare -a pos
+pos=(0 1 2 3 4 5 6 7 8 9)
 read -p "Do you want to START the game? (y/n)" ans
 
 function symbol(){
@@ -27,11 +26,19 @@ echo "User :$signP"
 echo "Comp: $signC"
 }
 symbol
-function board(){
-  echo "   ${Arr[0]} | ${Arr[1]} | ${Arr[2]}"
-  echo "  -----------"
-  echo "   ${Arr[3]} | ${Arr[4]} | ${Arr[5]}"
-  echo "  -----------"
-  echo "   ${Arr[6]} | ${Arr[7]} | ${Arr[8]}"
+function display(){
+
+        len=${#pos[@]}
+        for i in 1 2 3 4 5 6 7 8 9;
+        do
+                if [[ $i == 3 || $i == 6 ]]
+                then
+                        echo "${a[i]} |"
+
+                else
+                        echo -n "${a[i]} | "
+
+                fi
+        done
 }
-board
+display
